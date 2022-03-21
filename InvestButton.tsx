@@ -1,4 +1,4 @@
-// ConnectButton.tsx
+// InvestButton.tsx
 import { Button, Box, Text } from "@chakra-ui/react";
 import { useEthers, useEtherBalance } from "@usedapp/core";
 
