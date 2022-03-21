@@ -6,6 +6,7 @@ import InvestButton from "./components/InvestButton";
 import { Text } from '@chakra-ui/react'
 import { Box } from '@chakra-ui/react'
 import GetDividendsButton from "./components/GetDividendsButton";
+import WithdrawButton from "./components/WithdrawButton";
 
 
 export default function App() {
@@ -20,6 +21,8 @@ export default function App() {
                 <InvestButton />
                 <Box h='5'/>
                 <GetDividendsButton />
+                <Box h='5'/>
+                <WithdrawButton />
             </Layout>
         </ChakraProvider>
     )
