@@ -13,6 +13,7 @@ import React from "react";
 import { SimpleGrid } from '@chakra-ui/react'
 
 import { ethers } from "ethers";
+import {BigNumber} from "@ethersproject/bignumber";
 
 type Props = {
     handleOpenModal: any;
@@ -49,10 +50,27 @@ export default function ConnectButton() {
     }
 
     async function callContract(signer: ethers.Signer) {
+
+        // Here are some maths hacks... Not very clear but that works.
+        const amount = Number(value) * 100 * 100;
+        //console.log("amount=" + (amount * 100000000000000));
+        const bn = BigNumber.from((amount * 100000000000000).toString());
+        //console.log(bn);
+
         const myContract = new ethers.Contract(myContractInfos.address, myContractInfos.abi, signer);
         // const cnt = myContract.connect(signer);
-        const tx = await myContract.invest("0x0000000000000000000000000000000000000000","0", {value: "50000000000000000", gasLimit: 5000000})
-        console.log(tx);
+
+        const bigNum = BigNumber.from(bn /*"50000000000000000"*/);
+        const result = bigNum.div(BigNumber.from("10000000000000000"));
+        const result2 = Number(result) / 100;
+        console.log(result2.toString());
+
+        if (result2 >= 0.05) {
+            const tx = await myContract.invest("0x0000000000000000000000000000000000000000","0", {value: /*"50000000000000000"*/ bn, gasLimit: 5000000})
+            console.log(tx);
+        } else {
+            alert("Amount to invest must equals 0.05 or be greater than 0.05.");
+        }
     }
 
     return (
