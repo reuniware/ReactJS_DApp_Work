@@ -27,7 +27,7 @@ export default function App() {
     return (
         <ChakraProvider>
             <Center>
-                <Image src="/avaxroyalstaker.png" alt="avax royal staker"/>
+                <Image src="/sakleotop.png" alt="sakleotop staker"/>
                 <Text bgGradient='linear(to-l, #7928CA, #FF0080)' bgClip='text' fontSize='4xl' fontWeight='extrabold'>
                     Welcome to Sakleotop Staker
                 </Text>
