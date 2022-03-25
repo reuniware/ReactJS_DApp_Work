@@ -7,7 +7,7 @@
 
 pragma solidity >=0.4.22 <0.9.0;
 
-contract AVAXStaker {
+contract 4V4XStaker {
 	using SafeMath for uint256;
 
 	uint256 constant public INVEST_MIN_AMOUNT = 0.05 ether;
